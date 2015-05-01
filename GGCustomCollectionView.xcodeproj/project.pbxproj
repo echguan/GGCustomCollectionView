@@ -14,6 +14,7 @@
 		3B8144631AF3F0A6000D8802 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B8144621AF3F0A6000D8802 /* Images.xcassets */; };
 		3B8144661AF3F0A6000D8802 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B8144641AF3F0A6000D8802 /* LaunchScreen.xib */; };
 		3B8144721AF3F0A6000D8802 /* GGCustomCollectionViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8144711AF3F0A6000D8802 /* GGCustomCollectionViewTests.m */; };
+		3B8144811AF3F251000D8802 /* GGCustomCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8144801AF3F251000D8802 /* GGCustomCollectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		3B81446B1AF3F0A6000D8802 /* GGCustomCollectionViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GGCustomCollectionViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B8144701AF3F0A6000D8802 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B8144711AF3F0A6000D8802 /* GGCustomCollectionViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGCustomCollectionViewTests.m; sourceTree = "<group>"; };
+		3B81447F1AF3F251000D8802 /* GGCustomCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GGCustomCollectionViewController.h; path = GGCustomCollectionView/CustomClass/GGCustomCollectionViewController.h; sourceTree = "<group>"; };
+		3B8144801AF3F251000D8802 /* GGCustomCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GGCustomCollectionViewController.m; path = GGCustomCollectionView/CustomClass/GGCustomCollectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +66,7 @@
 		3B8144491AF3F0A6000D8802 = {
 			isa = PBXGroup;
 			children = (
+				3B81447B1AF3F12D000D8802 /* GGCustomView */,
 				3B8144541AF3F0A6000D8802 /* GGCustomCollectionView */,
 				3B81446E1AF3F0A6000D8802 /* GGCustomCollectionViewTests */,
 				3B8144531AF3F0A6000D8802 /* Products */,
@@ -117,6 +121,15 @@
 				3B8144701AF3F0A6000D8802 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3B81447B1AF3F12D000D8802 /* GGCustomView */ = {
+			isa = PBXGroup;
+			children = (
+				3B81447F1AF3F251000D8802 /* GGCustomCollectionViewController.h */,
+				3B8144801AF3F251000D8802 /* GGCustomCollectionViewController.m */,
+			);
+			name = GGCustomView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B81445E1AF3F0A6000D8802 /* ViewController.m in Sources */,
+				3B8144811AF3F251000D8802 /* GGCustomCollectionViewController.m in Sources */,
 				3B81445B1AF3F0A6000D8802 /* AppDelegate.m in Sources */,
 				3B8144581AF3F0A6000D8802 /* main.m in Sources */,
 			);
