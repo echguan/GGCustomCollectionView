@@ -53,6 +53,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 #warning Incomplete method implementation -- Return the number of items in the section
+    NSLog(@"this is a test");
     return 0;
 }
 
