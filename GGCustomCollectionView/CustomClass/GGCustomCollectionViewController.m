@@ -5,7 +5,7 @@
 //  Created by echgg on 15/5/2.
 //  Copyright (c) 2015年 echgg. All rights reserved.
 //
-
+#define CELLWIDTH (KSCREENWIDTH - 20)  / 3
 #import "GGCustomCollectionViewController.h"
 #import "GGCustomCollectionViewCell.h"
 @interface GGCustomCollectionViewController ()
@@ -56,12 +56,12 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
+    return 2;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 2;
+    return 10;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -70,7 +70,7 @@ static NSString * const reuseIdentifier = @"Cell";
     {
         cell = [[GGCustomCollectionViewCell alloc] init];
     }
-    cell.myImage.backgroundColor = [UIColor redColor];
+    cell.myImage.image = [UIImage imageNamed:@"peopleImage"];
     cell.nameLabel.text = @"hello";
     // Configure the cell
     
@@ -78,8 +78,32 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 #pragma mark <UICollectionViewDelegate>
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"cell's index is %d", indexPath.row + indexPath.section * 10);
+}
 
+#pragma mark <UICollectionViewDelegateFlowLayout>
 
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(CELLWIDTH, CELLWIDTH);
+}
+
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(10, 0, 0, 0);
+}
+
+-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 0;
+}
+
+-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 10;
+}
 
 /*
 // Uncomment this method to specify if the specified item should be highlighted during tracking
