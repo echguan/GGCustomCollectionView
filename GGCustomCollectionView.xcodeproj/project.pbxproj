@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B56966F1C82A74700A8335D /* GGCustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B56966E1C82A74700A8335D /* GGCustomCollectionViewCell.m */; };
 		3B8144581AF3F0A6000D8802 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8144571AF3F0A6000D8802 /* main.m */; };
 		3B81445B1AF3F0A6000D8802 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B81445A1AF3F0A6000D8802 /* AppDelegate.m */; };
 		3B81445E1AF3F0A6000D8802 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B81445D1AF3F0A6000D8802 /* ViewController.m */; };
@@ -28,6 +29,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B56966C1C82A26E00A8335D /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		3B56966D1C82A74700A8335D /* GGCustomCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGCustomCollectionViewCell.h; sourceTree = "<group>"; };
+		3B56966E1C82A74700A8335D /* GGCustomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGCustomCollectionViewCell.m; sourceTree = "<group>"; };
 		3B8144521AF3F0A6000D8802 /* GGCustomCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GGCustomCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B8144561AF3F0A6000D8802 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B8144571AF3F0A6000D8802 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -63,9 +67,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B5696651C829F3C00A8335D /* GlobalComfig */ = {
+			isa = PBXGroup;
+			children = (
+				3B56966C1C82A26E00A8335D /* PrefixHeader.pch */,
+			);
+			name = GlobalComfig;
+			sourceTree = "<group>";
+		};
 		3B8144491AF3F0A6000D8802 = {
 			isa = PBXGroup;
 			children = (
+				3B5696651C829F3C00A8335D /* GlobalComfig */,
 				3B81447B1AF3F12D000D8802 /* GGCustomView */,
 				3B8144541AF3F0A6000D8802 /* GGCustomCollectionView */,
 				3B81446E1AF3F0A6000D8802 /* GGCustomCollectionViewTests */,
@@ -128,6 +141,8 @@
 			children = (
 				3B81447F1AF3F251000D8802 /* GGCustomCollectionViewController.h */,
 				3B8144801AF3F251000D8802 /* GGCustomCollectionViewController.m */,
+				3B56966D1C82A74700A8335D /* GGCustomCollectionViewCell.h */,
+				3B56966E1C82A74700A8335D /* GGCustomCollectionViewCell.m */,
 			);
 			name = GGCustomView;
 			sourceTree = "<group>";
@@ -236,6 +251,7 @@
 				3B8144811AF3F251000D8802 /* GGCustomCollectionViewController.m in Sources */,
 				3B81445B1AF3F0A6000D8802 /* AppDelegate.m in Sources */,
 				3B8144581AF3F0A6000D8802 /* main.m in Sources */,
+				3B56966F1C82A74700A8335D /* GGCustomCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +379,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
 				INFOPLIST_FILE = GGCustomCollectionView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -373,6 +391,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
 				INFOPLIST_FILE = GGCustomCollectionView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -432,6 +452,7 @@
 				3B8144771AF3F0A6000D8802 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3B8144781AF3F0A6000D8802 /* Build configuration list for PBXNativeTarget "GGCustomCollectionViewTests" */ = {
 			isa = XCConfigurationList;
@@ -440,6 +461,7 @@
 				3B81447A1AF3F0A6000D8802 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

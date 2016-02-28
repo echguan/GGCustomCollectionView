@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface GGCustomCollectionViewController : UICollectionViewController<UICollectionViewDataSource, UICollectionViewDelegate>
-
+@property (nonatomic, strong) UICollectionView *myCollectionView;
 @end

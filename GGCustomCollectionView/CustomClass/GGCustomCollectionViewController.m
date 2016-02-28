@@ -7,7 +7,7 @@
 //
 
 #import "GGCustomCollectionViewController.h"
-
+#import "GGCustomCollectionViewCell.h"
 @interface GGCustomCollectionViewController ()
 
 @end
@@ -23,9 +23,19 @@ static NSString * const reuseIdentifier = @"Cell";
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
-    
+//    [self.collectionView registerClass:[GGCustomCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    [self initCollectionview];
     // Do any additional setup after loading the view.
+}
+
+-(void)initCollectionview
+{
+//    UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
+//    self.myCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, KSCREENWIDTH ,KSCREENHEIGHT) collectionViewLayout:layout];
+//    [self.view addSubview:_myCollectionView];
+//    _myCollectionView.delegate = self;
+//    _myCollectionView.dataSource = self;
+//    [_myCollectionView registerClass:[GGCustomCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,26 +56,30 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete method implementation -- Return the number of sections
-    return 0;
+    return 1;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete method implementation -- Return the number of items in the section
-    NSLog(@"this is a test");
-    return 0;
+    return 2;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    
+    GGCustomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    if(!cell)
+    {
+        cell = [[GGCustomCollectionViewCell alloc] init];
+    }
+    cell.myImage.backgroundColor = [UIColor redColor];
+    cell.nameLabel.text = @"hello";
     // Configure the cell
     
     return cell;
 }
 
 #pragma mark <UICollectionViewDelegate>
+
+
 
 /*
 // Uncomment this method to specify if the specified item should be highlighted during tracking
