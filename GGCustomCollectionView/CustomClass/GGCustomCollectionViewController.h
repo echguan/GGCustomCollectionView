@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GGGetPhotosDataViewController.h"
 
-@interface GGCustomCollectionViewController : UICollectionViewController<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface GGCustomCollectionViewController : UICollectionViewController<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout,showPhotoDelegate>
 @property (nonatomic, strong) UICollectionView *myCollectionView;
+@property (nonatomic, strong) NSMutableArray  *showDataInfoArray;
 @end

@@ -8,11 +8,14 @@
 #define CELLWIDTH (KSCREENWIDTH - 20)  / 3
 #import "GGCustomCollectionViewController.h"
 #import "GGCustomCollectionViewCell.h"
+#import "GGGetPhotosData.h"
 @interface GGCustomCollectionViewController ()
 
 @end
 
-@implementation GGCustomCollectionViewController
+@implementation GGCustomCollectionViewController{
+    GGGetPhotosDataViewController *imageViewController;
+}
 
 static NSString * const reuseIdentifier = @"Cell";
 
@@ -24,6 +27,8 @@ static NSString * const reuseIdentifier = @"Cell";
     
     // Register cell classes
 //    [self.collectionView registerClass:[GGCustomCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    _showDataInfoArray = [[NSMutableArray alloc] init];
+    [self initData];
     [self initCollectionview];
     // Do any additional setup after loading the view.
 }
@@ -37,6 +42,26 @@ static NSString * const reuseIdentifier = @"Cell";
 //    _myCollectionView.dataSource = self;
 //    [_myCollectionView registerClass:[GGCustomCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
 }
+
+-(void)initData
+{
+//    _showDataInfoArray = [[NSMutableArray alloc] init];
+//    GGGetPhotosData *data = [GGGetPhotosData new];
+    imageViewController = [[GGGetPhotosDataViewController alloc] init];
+    [imageViewController getPhonePhotos];
+    imageViewController.delegate = self;
+//    _showDataInfoArray = [[NSMutableArray alloc] initWithArray:[data getPhonePhotos]];
+//    [_myCollectionView reloadData];
+}
+
+#pragma mark ----- delegate -----
+
+-(void)getImageData:(NSArray*)imageArray
+{
+    _showDataInfoArray = [[NSMutableArray alloc] initWithArray:imageArray];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.collectionView reloadData];
+    });}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -56,12 +81,12 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 2;
+    return 1;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    return [_showDataInfoArray count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -70,7 +95,7 @@ static NSString * const reuseIdentifier = @"Cell";
     {
         cell = [[GGCustomCollectionViewCell alloc] init];
     }
-    cell.myImage.image = [UIImage imageNamed:@"peopleImage"];
+    cell.myImage.image = [_showDataInfoArray objectAtIndex:indexPath.row];
     cell.nameLabel.text = @"hello";
     // Configure the cell
     
