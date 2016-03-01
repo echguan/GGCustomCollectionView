@@ -8,7 +8,6 @@
 #define CELLWIDTH (KSCREENWIDTH - 20)  / 3
 #import "GGCustomCollectionViewController.h"
 #import "GGCustomCollectionViewCell.h"
-#import "GGGetPhotosData.h"
 @interface GGCustomCollectionViewController ()
 
 @end

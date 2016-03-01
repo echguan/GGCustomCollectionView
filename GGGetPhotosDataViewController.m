@@ -68,17 +68,30 @@ static int count = 0;
     
     void (^ assetGroupEnumerator) ( ALAssetsGroup *, BOOL *)= ^(ALAssetsGroup *group, BOOL *stop) {
         if(group != nil) {
+            NSString *groupName = [group valueForProperty:ALAssetsGroupPropertyName];
+            NSString *groupUrl = [group valueForProperty:ALAssetsGroupPropertyURL];
+            NSLog(@"group name is %@, and group url is %@", groupName, groupUrl);
             [group enumerateAssetsUsingBlock:assetEnumerator];
             [assetGroups addObject:group];
             count=[group numberOfAssets];
         }
+    };
+    //用户拒绝访问
+    void(^assetGroupEnumError)(NSError*) = ^(NSError *error){
+        NSString *errorMsg = @"can not access library groups!";
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+                                                        message:errorMsg
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil, nil];
+        [alert show];
     };
     
     assetGroups = [[NSMutableArray alloc] init];
     
     [library enumerateGroupsWithTypes:ALAssetsGroupAll
                            usingBlock:assetGroupEnumerator
-                         failureBlock:^(NSError *error) {NSLog(@"There is an error");}];
+                         failureBlock:assetGroupEnumError];
 }
 
 -(void)allPhotosCollected:(NSArray*)imgArray
