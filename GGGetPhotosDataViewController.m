@@ -66,7 +66,7 @@ static int count = 0;
     
     NSMutableArray *assetGroups = [[NSMutableArray alloc] init];
     
-    void (^ assetGroupEnumerator) ( ALAssetsGroup *, BOOL *)= ^(ALAssetsGroup *group, BOOL *stop) {
+    ALAssetsLibraryGroupsEnumerationResultsBlock assetGroupEnumerator= ^(ALAssetsGroup *group, BOOL *stop) {
         if(group != nil) {
             NSString *groupName = [group valueForProperty:ALAssetsGroupPropertyName];
             NSString *groupUrl = [group valueForProperty:ALAssetsGroupPropertyURL];

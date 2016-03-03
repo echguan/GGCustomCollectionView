@@ -18,6 +18,7 @@
 		3B8144661AF3F0A6000D8802 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B8144641AF3F0A6000D8802 /* LaunchScreen.xib */; };
 		3B8144721AF3F0A6000D8802 /* GGCustomCollectionViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8144711AF3F0A6000D8802 /* GGCustomCollectionViewTests.m */; };
 		3B8144811AF3F251000D8802 /* GGCustomCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8144801AF3F251000D8802 /* GGCustomCollectionViewController.m */; };
+		4AE1FBCB02000E32CE81A6D4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D191D9ADBF65CA4D86094D3 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		176BE8B0AB2166E95B014E79 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		3B56966C1C82A26E00A8335D /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		3B56966D1C82A74700A8335D /* GGCustomCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGCustomCollectionViewCell.h; sourceTree = "<group>"; };
 		3B56966E1C82A74700A8335D /* GGCustomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGCustomCollectionViewCell.m; sourceTree = "<group>"; };
@@ -52,6 +54,8 @@
 		3B8144711AF3F0A6000D8802 /* GGCustomCollectionViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGCustomCollectionViewTests.m; sourceTree = "<group>"; };
 		3B81447F1AF3F251000D8802 /* GGCustomCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GGCustomCollectionViewController.h; path = GGCustomCollectionView/CustomClass/GGCustomCollectionViewController.h; sourceTree = "<group>"; };
 		3B8144801AF3F251000D8802 /* GGCustomCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GGCustomCollectionViewController.m; path = GGCustomCollectionView/CustomClass/GGCustomCollectionViewController.m; sourceTree = "<group>"; };
+		3D191D9ADBF65CA4D86094D3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC27A84FBD74BE2245C065AF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B5696741C847F8C00A8335D /* AssetsLibrary.framework in Frameworks */,
+				4AE1FBCB02000E32CE81A6D4 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +78,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B1059ACAF8C88044A1ABC99 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DC27A84FBD74BE2245C065AF /* Pods.debug.xcconfig */,
+				176BE8B0AB2166E95B014E79 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		3B5696651C829F3C00A8335D /* GlobalComfig */ = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +104,8 @@
 				3B8144541AF3F0A6000D8802 /* GGCustomCollectionView */,
 				3B81446E1AF3F0A6000D8802 /* GGCustomCollectionViewTests */,
 				3B8144531AF3F0A6000D8802 /* Products */,
+				1B1059ACAF8C88044A1ABC99 /* Pods */,
+				4BD082F1A37C9781337FFEA6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -156,6 +172,14 @@
 			name = GGCustomView;
 			sourceTree = "<group>";
 		};
+		4BD082F1A37C9781337FFEA6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D191D9ADBF65CA4D86094D3 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -163,9 +187,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B8144751AF3F0A6000D8802 /* Build configuration list for PBXNativeTarget "GGCustomCollectionView" */;
 			buildPhases = (
+				CAE1D58A2466B6F50A8E79DB /* Check Pods Manifest.lock */,
 				3B81444E1AF3F0A6000D8802 /* Sources */,
 				3B81444F1AF3F0A6000D8802 /* Frameworks */,
 				3B8144501AF3F0A6000D8802 /* Resources */,
+				5DBDF84B02C734B50C2F3A3F /* Embed Pods Frameworks */,
+				A9ABD11E17A466B79BF54EBC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -205,6 +232,7 @@
 				TargetAttributes = {
 					3B8144511AF3F0A6000D8802 = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = VU48F8Q2PC;
 					};
 					3B81446A1AF3F0A6000D8802 = {
 						CreatedOnToolsVersion = 6.3;
@@ -250,6 +278,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5DBDF84B02C734B50C2F3A3F /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9ABD11E17A466B79BF54EBC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CAE1D58A2466B6F50A8E79DB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3B81444E1AF3F0A6000D8802 /* Sources */ = {
@@ -387,25 +463,33 @@
 		};
 		3B8144761AF3F0A6000D8802 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC27A84FBD74BE2245C065AF /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
 				INFOPLIST_FILE = GGCustomCollectionView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		3B8144771AF3F0A6000D8802 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 176BE8B0AB2166E95B014E79 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
 				INFOPLIST_FILE = GGCustomCollectionView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
