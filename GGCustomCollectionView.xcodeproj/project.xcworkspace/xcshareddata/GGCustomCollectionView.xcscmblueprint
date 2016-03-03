@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "9D9D3C0959AF7AE29044757D59BC0A27C352F73E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "7BA3AEF7D620CC2B45BB0DD22E26DE5DB960A735" : 0,
+    "9D9D3C0959AF7AE29044757D59BC0A27C352F73E" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "8B7F6012-C2E5-4764-9637-58A7032DACEB",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "7BA3AEF7D620CC2B45BB0DD22E26DE5DB960A735" : "",
+    "9D9D3C0959AF7AE29044757D59BC0A27C352F73E" : "GGCustomCollectionView\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "GGCustomCollectionView",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "GGCustomCollectionView.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/micro-robot\/DYCooperation",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7BA3AEF7D620CC2B45BB0DD22E26DE5DB960A735"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/echguan\/GGCustomCollectionView",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9D9D3C0959AF7AE29044757D59BC0A27C352F73E"
+    }
+  ]
+}
