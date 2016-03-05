@@ -381,6 +381,7 @@
 /* Begin XCBuildConfiguration section */
 		3B8144731AF3F0A6000D8802 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC27A84FBD74BE2245C065AF /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -415,6 +416,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -425,6 +427,7 @@
 		};
 		3B8144741AF3F0A6000D8802 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC27A84FBD74BE2245C065AF /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -453,6 +456,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
@@ -470,6 +474,12 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)/**",
+					"${PODS_ROOT}/**",
+					"${PODS_ROOT}/Headers/Public/**",
+					"${PODS_ROOT}/Headers/Public/SDWebImage/**",
+				);
 				INFOPLIST_FILE = GGCustomCollectionView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -486,6 +496,12 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)/**",
+					"${PODS_ROOT}/**",
+					"${PODS_ROOT}/Headers/Public/**",
+					"${PODS_ROOT}/Headers/Public/SDWebImage/**",
+				);
 				INFOPLIST_FILE = GGCustomCollectionView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -495,6 +511,7 @@
 		};
 		3B8144791AF3F0A6000D8802 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC27A84FBD74BE2245C065AF /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -514,6 +531,7 @@
 		};
 		3B81447A1AF3F0A6000D8802 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 176BE8B0AB2166E95B014E79 /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (

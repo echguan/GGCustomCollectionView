@@ -8,6 +8,7 @@
 #define CELLWIDTH (KSCREENWIDTH - 20)  / 3
 #import "GGCustomCollectionViewController.h"
 #import "GGCustomCollectionViewCell.h"
+#import <MJRefresh.h>
 @interface GGCustomCollectionViewController ()
 
 @end
@@ -40,6 +41,15 @@ static NSString * const reuseIdentifier = @"Cell";
 //    _myCollectionView.delegate = self;
 //    _myCollectionView.dataSource = self;
 //    [_myCollectionView registerClass:[GGCustomCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self  refreshData];
+    }];
+}
+
+-(void)refreshData
+{
+    [self.collectionView reloadData];
+    [self.collectionView.mj_header endRefreshing];
 }
 
 -(void)initData

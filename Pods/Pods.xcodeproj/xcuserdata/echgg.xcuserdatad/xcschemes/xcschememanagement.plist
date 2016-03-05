@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>MJRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,7 +27,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>762D1DA83E192BAA4A2194262A3F7CEE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8F74D9EA91F4C43190670066BAC37D44</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>CAEA868BA328BE96EDD68B17F7660DB0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CDDA973ABA719EE991B95B3EEBFB30ED</key>
 		<dict>
 			<key>primary</key>
 			<true/>
