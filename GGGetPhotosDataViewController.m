@@ -50,7 +50,7 @@ static int count = 0;
                 
                 [library assetForURL:url
                          resultBlock:^(ALAsset *asset) {
-                             [mutableArray addObject:[UIImage imageWithCGImage:[[asset defaultRepresentation] fullScreenImage]]];
+                             [mutableArray addObject:asset];
                              
                              if ([mutableArray count]==count)
                              {

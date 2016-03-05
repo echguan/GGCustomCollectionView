@@ -13,5 +13,7 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #define KSCREENWIDTH [[UIScreen mainScreen] bounds].size.width
 #define KSCREENHEIGHT [[UIScreen mainScreen] bounds].size.height
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <UIImage+MultiFormat.h>
 
 #endif /* PrefixHeader_pch */

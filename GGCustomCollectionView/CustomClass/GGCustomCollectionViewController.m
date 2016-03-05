@@ -9,6 +9,7 @@
 #import "GGCustomCollectionViewController.h"
 #import "GGCustomCollectionViewCell.h"
 #import <MJRefresh.h>
+
 @interface GGCustomCollectionViewController ()
 
 @end
@@ -44,12 +45,22 @@ static NSString * const reuseIdentifier = @"Cell";
     self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self  refreshData];
     }];
+    self.collectionView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingBlock:^{
+        [self addMoreData];
+    }];
 }
 
 -(void)refreshData
 {
     [self.collectionView reloadData];
     [self.collectionView.mj_header endRefreshing];
+}
+
+-(void)addMoreData
+{
+    [_showDataInfoArray addObjectsFromArray:_showDataInfoArray];
+    [self.collectionView reloadData];
+    [self.collectionView.mj_footer endRefreshing];
 }
 
 -(void)initData
@@ -104,7 +115,20 @@ static NSString * const reuseIdentifier = @"Cell";
     {
         cell = [[GGCustomCollectionViewCell alloc] init];
     }
-    cell.myImage.image = [_showDataInfoArray objectAtIndex:indexPath.row];
+    __block UIImage* thumbnail;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        ALAsset *asset =  (ALAsset*)[_showDataInfoArray objectAtIndex:indexPath.row];
+        thumbnail = [[UIImage alloc] initWithCGImage:[[asset defaultRepresentation] fullScreenImage] scale:UIViewContentModeScaleAspectFit orientation:UIImageOrientationUp];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            cell.myImage.image = thumbnail;
+        });
+    });
+
+//    ALAssetRepresentation *rep = [asset defaultRepresentation];
+//    Byte *buffer = (Byte*)malloc(rep.size);
+//    NSUInteger buffered = [rep getBytes:buffer fromOffset:0.0 length:rep.size error:nil];
+//    NSData *data = [NSData dataWithBytesNoCopy:buffer length:buffered freeWhenDone:YES];
+//    cell.myImage.image = [_showDataInfoArray objectAtIndex:indexPath.row];
     cell.nameLabel.text = @"hello";
     // Configure the cell
     
