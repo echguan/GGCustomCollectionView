@@ -8,6 +8,7 @@
 #define CELLWIDTH (KSCREENWIDTH - 20)  / 3
 #import "GGCustomCollectionViewController.h"
 #import "GGCustomCollectionViewCell.h"
+#import "GGCollectionViewLayout.h"
 #import <MJRefresh.h>
 
 @interface GGCustomCollectionViewController ()
@@ -108,7 +109,7 @@ static NSString * const reuseIdentifier = @"Cell";
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return [_showDataInfoArray count];
 }
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     GGCustomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     if(!cell)
@@ -146,7 +147,7 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark <UICollectionViewDelegate>
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"cell's index is %d", indexPath.row + indexPath.section * 10);
+    NSLog(@"cell's index is %ld", indexPath.row + indexPath.section * 10);
 }
 
 #pragma mark <UICollectionViewDelegateFlowLayout>
@@ -170,6 +171,17 @@ static NSString * const reuseIdentifier = @"Cell";
 {
     return 10;
 }
+
+#pragma mark ---- UICollectionViewDelegateFlowLayout ----
+
+//- (void)prepareLayout {
+//    
+//    [super prepareLayout];
+//    // 初始化参数
+//    _cellCount = [self.collectionView numberOfItemsInSection:0]; // cell个数，直接从collectionView中获得
+//    _insert = 10; // 设置间距
+//    _itemWidth = SCREEN_WIDTH / 2 - 3 * _insert; // cell宽度
+//}
 
 /*
 // Uncomment this method to specify if the specified item should be highlighted during tracking
