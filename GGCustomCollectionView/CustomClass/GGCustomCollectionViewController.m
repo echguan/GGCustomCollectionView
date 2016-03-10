@@ -68,8 +68,8 @@ static NSString * const reuseIdentifier = @"Cell";
 //    _showDataInfoArray = [[NSMutableArray alloc] init];
 //    GGGetPhotosData *data = [GGGetPhotosData new];
     imageViewController = [[GGGetPhotosDataViewController alloc] init];
-    [imageViewController getPhonePhotos];
     imageViewController.delegate = self;
+    [imageViewController getPhonePhotos];
 //    _showDataInfoArray = [[NSMutableArray alloc] initWithArray:[data getPhonePhotos]];
 //    [_myCollectionView reloadData];
 }
@@ -115,23 +115,31 @@ static NSString * const reuseIdentifier = @"Cell";
     {
         cell = [[GGCustomCollectionViewCell alloc] init];
     }
-    __block UIImage* thumbnail;
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        ALAsset *asset =  (ALAsset*)[_showDataInfoArray objectAtIndex:indexPath.row];
-        thumbnail = [[UIImage alloc] initWithCGImage:[[asset defaultRepresentation] fullScreenImage] scale:UIViewContentModeScaleAspectFit orientation:UIImageOrientationUp];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            cell.myImage.image = thumbnail;
-        });
-    });
-
-//    ALAssetRepresentation *rep = [asset defaultRepresentation];
-//    Byte *buffer = (Byte*)malloc(rep.size);
-//    NSUInteger buffered = [rep getBytes:buffer fromOffset:0.0 length:rep.size error:nil];
-//    NSData *data = [NSData dataWithBytesNoCopy:buffer length:buffered freeWhenDone:YES];
-//    cell.myImage.image = [_showDataInfoArray objectAtIndex:indexPath.row];
-    cell.nameLabel.text = @"hello";
-    // Configure the cell
+//    __block UIImage* thumbnail;
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        ALAsset *asset =  (ALAsset*)[_showDataInfoArray objectAtIndex:indexPath.row];
+//        thumbnail = [[UIImage alloc] initWithCGImage:[[asset defaultRepresentation] fullScreenImage] scale:UIViewContentModeScaleAspectFit orientation:UIImageOrientationUp];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            cell.myImage.image = thumbnail;
+//        });
+//    });
     
+    PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
+    options.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
+    options.networkAccessAllowed = YES;
+    CGFloat scale = [UIScreen mainScreen].scale;
+    CGSize targetSize = CGSizeMake(CGRectGetWidth(cell.myImage.bounds) * scale, CGRectGetHeight(cell.myImage.bounds) * scale);
+    [[PHImageManager defaultManager] requestImageForAsset:(PHAsset*)[_showDataInfoArray objectAtIndex:indexPath.row] targetSize:targetSize contentMode:PHImageContentModeAspectFit options:options resultHandler:^(UIImage *result, NSDictionary *info) {
+        // Hide the progress view now the request has completed.
+//        self.progressView.hidden = YES;
+        
+        // Check if the request was successful.
+        if (!result) {
+            return;
+        }
+        cell.myImage.image = result;
+    }];
+    cell.nameLabel.text = @"hello";
     return cell;
 }
 

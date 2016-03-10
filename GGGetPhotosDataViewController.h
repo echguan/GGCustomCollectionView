@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AssetsLibrary/AssetsLibrary.h>
-
+#import <Photos/Photos.h>
 @protocol showPhotoDelegate <NSObject>
 
 -(void)getImageData:(NSArray*)imageArray;

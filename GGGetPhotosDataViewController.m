@@ -29,8 +29,9 @@ static int count = 0;
 
 -(void)getPhonePhotos
 {
-    [self getAllPictures];
+//    [self getAllPictures];
 //    return imageArray;
+    [self getPhotosWithPhotoKit];
 }
 
 -(void)getAllPictures
@@ -103,6 +104,26 @@ static int count = 0;
         [self.delegate getImageData:imageArray];
     }
 }
+
+-(void)getPhotosWithPhotoKit
+{
+//    PHFetchResult *smartAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
+//    PHFetchResult *topLevelUserCollections = [PHCollectionList fetchTopLevelUserCollectionsWithOptions:nil];
+    PHFetchOptions *options = [[PHFetchOptions alloc] init];
+    options.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:YES]];
+    PHFetchResult *assetsFetchResults = [PHAsset fetchAssetsWithOptions:options];
+    imageArray=[[NSArray alloc] init];
+    mutableArray =[[NSMutableArray alloc]init];
+    for (NSInteger i = 0; i < assetsFetchResults.count; i++) {
+        // 获取一个资源（PHAsset）
+        PHAsset *asset = assetsFetchResults[i];
+        [mutableArray addObject:asset];
+        imageArray=[[NSArray alloc] initWithArray:mutableArray];
+        NSLog(@"%@", asset);
+    }
+    [self allPhotosCollected:imageArray];
+}
+
 /*
 #pragma mark - Navigation
 
