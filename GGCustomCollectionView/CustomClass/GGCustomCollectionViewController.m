@@ -59,9 +59,9 @@ static NSString * const reuseIdentifier = @"Cell";
 
 -(void)addMoreData
 {
-    [_showDataInfoArray addObjectsFromArray:_showDataInfoArray];
-    [self.collectionView reloadData];
-    [self.collectionView.mj_footer endRefreshing];
+//    [_showDataInfoArray addObjectsFromArray:_showDataInfoArray];
+//    [self.collectionView reloadData];
+//    [self.collectionView.mj_footer endRefreshing];
 }
 
 -(void)initData
@@ -172,6 +172,44 @@ static NSString * const reuseIdentifier = @"Cell";
     return 10;
 }
 
+-(void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    PHAsset *pha = [_showDataInfoArray objectAtIndex:sourceIndexPath.item];
+    [_showDataInfoArray removeObjectAtIndex:sourceIndexPath.item];
+    [_showDataInfoArray insertObject:pha atIndex:destinationIndexPath.item];
+}
+
+-(BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (IBAction)handlelongGesture:(id)sender {
+    UILongPressGestureRecognizer *longGesture = (UILongPressGestureRecognizer*)sender;
+    switch (longGesture.state) {
+        case UIGestureRecognizerStateBegan:{
+            //判断手势落点位置是否在路径上
+            NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:[longGesture locationInView:self.collectionView]];
+            if (indexPath == nil) {
+                break;
+            }
+            //在路径上则开始移动该路径上的cell
+            [self.collectionView beginInteractiveMovementForItemAtIndexPath:indexPath];
+        }
+            break;
+        case UIGestureRecognizerStateChanged:
+            //移动过程当中随时更新cell位置
+            [self.collectionView updateInteractiveMovementTargetPosition:[longGesture locationInView:self.collectionView]];
+            break;
+        case UIGestureRecognizerStateEnded:
+            //移动结束后关闭cell移动
+            [self.collectionView endInteractiveMovement];
+            break;
+        default:
+            [self.collectionView cancelInteractiveMovement];
+            break;
+    }
+}
 #pragma mark ---- UICollectionViewDelegateFlowLayout ----
 
 //- (void)prepareLayout {

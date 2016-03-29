@@ -48,7 +48,7 @@
     UICollectionViewLayoutAttributes* attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:path]; //生成空白的attributes对象，其中只记录了类型是cell以及对应的位置是indexPath
     //配置attributes到圆周上
     attributes.size = CGSizeMake(cellWidth, cellWidth);
-    attributes.center = CGPointMake(center.x + radius * cosf(2 * path.item * M_PI / cellCount), center.y + radius * sinf(2 * path.item * M_PI / cellCount));
+    attributes.center = CGPointMake(center.x + radius * cosf(2 * path.row * M_PI / cellCount), center.y + radius * sinf(2 * path.row * M_PI / cellCount));
     return attributes;
 }
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hmI-bY-om7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hmI-bY-om7">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -30,7 +30,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <collectionViewLayout key="collectionViewLayout" id="L2C-6i-NZh" customClass="GGCollectionViewLayout"/>
+                        <gestureRecognizers/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="adQ-pn-hQS">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="YnQ-4u-ZIa" customClass="GGCustomCollectionViewCell">
                                 <rect key="frame" x="0.0" y="64" width="50" height="50"/>
@@ -80,13 +86,20 @@
                             </collectionViewCell>
                         </cells>
                         <connections>
-                            <outlet property="dataSource" destination="xds-gT-77t" id="obm-sd-PfW"/>
-                            <outlet property="delegate" destination="xds-gT-77t" id="Wl7-GY-sp9"/>
+                            <outlet property="dataSource" destination="xds-gT-77t" id="aEO-3m-qIB"/>
+                            <outlet property="delegate" destination="xds-gT-77t" id="Wnw-AR-Nem"/>
+                            <outletCollection property="gestureRecognizers" destination="WjN-oP-tsv" appends="YES" id="9d9-sB-2Hf"/>
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="Wvg-4a-LaY"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SaH-oa-dmk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="WjN-oP-tsv">
+                    <connections>
+                        <action selector="handlelongGesture:" destination="xds-gT-77t" id="ArK-FJ-cX6"/>
+                        <outlet property="delegate" destination="K4G-sf-aay" id="B9N-uD-kDi"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="196" y="350"/>
         </scene>
