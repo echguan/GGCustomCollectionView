@@ -9,6 +9,7 @@
 #import "GGCustomCollectionViewController.h"
 #import "GGCustomCollectionViewCell.h"
 #import "GGCollectionViewLayout.h"
+#import "GGImageShowView.h"
 #import <MJRefresh.h>
 
 @interface GGCustomCollectionViewController ()
@@ -148,6 +149,26 @@ static NSString * const reuseIdentifier = @"Cell";
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"cell's index is %ld", indexPath.row + indexPath.section * 10);
+//    GGImageShowView *showView = [[GGImageShowView alloc] initWithFrame:CGRectMake(0, 0, KSCREENWIDTH, KSCREENHEIGHT)];
+//    [self.view addSubview:showView];
+    PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
+    options.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
+    options.networkAccessAllowed = YES;
+//    CGFloat scale = [UIScreen mainScreen].scale;
+//    CGSize targetSize = CGSizeMake(CGRectGetWidth(showView.bounds), CGRectGetHeight(showView.bounds));
+    [[PHImageManager defaultManager] requestImageForAsset:(PHAsset*)[_showDataInfoArray objectAtIndex:indexPath.row] targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeAspectFit options:options resultHandler:^(UIImage *result, NSDictionary *info) {
+        // Hide the progress view now the request has completed.
+        //        self.progressView.hidden = YES;
+        
+        // Check if the request was successful.
+        if (!result) {
+            return;
+        }
+        GGImageShowView *showView = [[GGImageShowView alloc] initWithFrame:CGRectMake(0, 0, KSCREENWIDTH, KSCREENHEIGHT) andImage:result];
+        [self.view addSubview:showView];
+//        cell.myImage.image = result;
+//        [showView setImageViewWithImage:result];
+    }];
 }
 
 #pragma mark <UICollectionViewDelegateFlowLayout>
@@ -180,6 +201,11 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 -(BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (BOOL)collectionView:(UICollectionView *)collectionView itemAtIndexPath:(NSIndexPath *)fromIndexPath canMoveToIndexPath:(NSIndexPath *)toIndexPath
 {
     return YES;
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1CEDE3B71CBB3CC600B84389 /* GGImageShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CEDE3B61CBB3CC600B84389 /* GGImageShowView.m */; };
 		3B2796EA1C91B8BA005F80A5 /* GGCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2796E91C91B8BA005F80A5 /* GGCollectionViewLayout.m */; };
 		3B56966F1C82A74700A8335D /* GGCustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B56966E1C82A74700A8335D /* GGCustomCollectionViewCell.m */; };
 		3B5696741C847F8C00A8335D /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5696731C847F8C00A8335D /* AssetsLibrary.framework */; };
@@ -34,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		176BE8B0AB2166E95B014E79 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		1CEDE3B51CBB3CC600B84389 /* GGImageShowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGImageShowView.h; sourceTree = "<group>"; };
+		1CEDE3B61CBB3CC600B84389 /* GGImageShowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGImageShowView.m; sourceTree = "<group>"; };
 		3B2796E81C91B8BA005F80A5 /* GGCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GGCollectionViewLayout.h; path = GGCustomCollectionView/CustomClass/GGCollectionViewLayout.h; sourceTree = "<group>"; };
 		3B2796E91C91B8BA005F80A5 /* GGCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GGCollectionViewLayout.m; path = GGCustomCollectionView/CustomClass/GGCollectionViewLayout.m; sourceTree = "<group>"; };
 		3B56966C1C82A26E00A8335D /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -173,6 +176,8 @@
 				3B5696761C84897800A8335D /* GGGetPhotosDataViewController.m */,
 				3B2796E81C91B8BA005F80A5 /* GGCollectionViewLayout.h */,
 				3B2796E91C91B8BA005F80A5 /* GGCollectionViewLayout.m */,
+				1CEDE3B51CBB3CC600B84389 /* GGImageShowView.h */,
+				1CEDE3B61CBB3CC600B84389 /* GGImageShowView.m */,
 			);
 			name = GGCustomView;
 			sourceTree = "<group>";
@@ -338,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B5696771C84897800A8335D /* GGGetPhotosDataViewController.m in Sources */,
+				1CEDE3B71CBB3CC600B84389 /* GGImageShowView.m in Sources */,
 				3B81445E1AF3F0A6000D8802 /* ViewController.m in Sources */,
 				3B2796EA1C91B8BA005F80A5 /* GGCollectionViewLayout.m in Sources */,
 				3B8144811AF3F251000D8802 /* GGCustomCollectionViewController.m in Sources */,

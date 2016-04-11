@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GGCollectionViewLayout : UICollectionViewLayout<UICollectionViewDelegateFlowLayout>
+@interface GGCollectionViewLayout : UICollectionViewLayout<UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate>
+
+
+@property (nonatomic, strong, readonly) UILongPressGestureRecognizer *longPressGesture;
 
 @end
