@@ -11,4 +11,5 @@
 @interface GGCustomCollectionViewController : UICollectionViewController<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout,showPhotoDelegate>
 @property (nonatomic, strong) UICollectionView *myCollectionView;
 @property (nonatomic, strong) NSMutableArray  *showDataInfoArray;
+@property (nonatomic, strong, readonly) UIScrollView *showImageScrollView;
 @end

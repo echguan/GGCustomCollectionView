@@ -20,7 +20,7 @@
 */
 
 
--(id)initWithFrame:(CGRect)frame andImage:(UIImage *)image
+-(instancetype)initWithFrame:(CGRect)frame andImage:(UIImage *)image
 {
     self = [super initWithFrame:frame];
     if(self)
@@ -33,50 +33,26 @@
             _showImageView.userInteractionEnabled = YES;
             [_showImageView setImage:image];
             //        [self adaptFrame:_showImageView];
+//            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeSelf:)];
+//            [_showImageView addGestureRecognizer:tap];
             [self setMinimumZoomScale:3.0];
             [self setZoomScale:1.0];
             
         }
+        self.backgroundColor = [UIColor blackColor];
     }
     return self;
 }
 
-//-(void)setFrame:(CGRect)frame
+//-(void)removeSelf:(UIGestureRecognizer*)ges
 //{
-//    [super setFrame:frame];
-//    if(!_showImageView)
-//    {
-//        self.delegate = self;
-//        _showImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 10, frame.size.width, frame.size.height)];
-//        [self addSubview:_showImageView];
-//        _showImageView.userInteractionEnabled = YES;
-////        [self adaptFrame:_showImageView];
-//        [self setMinimumZoomScale:1.0];
-//        [self setZoomScale:1.0];
-//        
-//    }
+//    [self removeFromSuperview];
 //}
 
 -(void)setImageViewWithImage:(UIImage*)image
 {
     [_showImageView setImage:image];
 }
-
-//-(void)adaptFrame:(UIImageView*)imge{
-//    UIImageView *img = self.showImageView;
-//    if (img.image.size.width > self.frame.size.width || img.image.size.height > self.frame.size.height) {
-//        float a = img.image.size.width / self.frame.size.width;
-//        float b = img.image.size.height / self.frame.size.height;
-//        if (a >= b) {
-//            img.frame = CGRectMake(0, (self.frame.size.height-img.image.size.height/a)/2, KSCREENWIDTH * MULTIPLE, img.image.size.height/a * MULTIPLE);
-//        }else{
-//            img.frame = CGRectMake((KSCREENWIDTH-img.image.size.width/b)/2, 0, img.image.size.width/b * MULTIPLE, self.frame.size.height * MULTIPLE);
-//        }
-//    }
-//    else{
-//        img.frame = CGRectMake((self.frame.size.width-img.image.size.width* MULTIPLE)/2, (self.frame.size.height-img.image.size.height* MULTIPLE)/2, img.image.size.width * MULTIPLE, img.image.size.height * MULTIPLE);
-//    }
-//}
 
 //返回需要缩放的控件 需要在初始化时将showImage赋值否则会crash
 -(UIView*)viewForZoomingInScrollView:(UIScrollView *)scrollView

@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 echgg. All rights reserved.
 //
 #define CELLWIDTH (KSCREENWIDTH - 20)  / 3
+#define SHOWIMAGESCROLLMODE 0x111
 #import "GGCustomCollectionViewController.h"
 #import "GGCustomCollectionViewCell.h"
 #import "GGCollectionViewLayout.h"
@@ -18,6 +19,7 @@
 
 @implementation GGCustomCollectionViewController{
     GGGetPhotosDataViewController *imageViewController;
+    NSInteger currentPage;//当前展示的相片
 }
 
 static NSString * const reuseIdentifier = @"Cell";
@@ -149,26 +151,31 @@ static NSString * const reuseIdentifier = @"Cell";
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"cell's index is %ld", indexPath.row + indexPath.section * 10);
-//    GGImageShowView *showView = [[GGImageShowView alloc] initWithFrame:CGRectMake(0, 0, KSCREENWIDTH, KSCREENHEIGHT)];
-//    [self.view addSubview:showView];
+    if(!_showImageScrollView)
+    {
+        _showImageScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, KSCREENWIDTH, KSCREENHEIGHT)];
+        [self.view addSubview:_showImageScrollView];
+        [_showImageScrollView setContentSize:CGSizeMake([_showDataInfoArray count] * KSCREENWIDTH, KSCREENHEIGHT)];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeScrollView:)];
+        [self.view addSubview:_showImageScrollView];
+        _showImageScrollView.delegate = self;
+        [_showImageScrollView setPagingEnabled:YES];
+        [_showImageScrollView addGestureRecognizer:tap];
+        _showImageScrollView.tag = SHOWIMAGESCROLLMODE;
+    }
     PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
     options.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
     options.networkAccessAllowed = YES;
-//    CGFloat scale = [UIScreen mainScreen].scale;
-//    CGSize targetSize = CGSizeMake(CGRectGetWidth(showView.bounds), CGRectGetHeight(showView.bounds));
-    [[PHImageManager defaultManager] requestImageForAsset:(PHAsset*)[_showDataInfoArray objectAtIndex:indexPath.row] targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeAspectFit options:options resultHandler:^(UIImage *result, NSDictionary *info) {
-        // Hide the progress view now the request has completed.
-        //        self.progressView.hidden = YES;
-        
-        // Check if the request was successful.
-        if (!result) {
-            return;
-        }
-        GGImageShowView *showView = [[GGImageShowView alloc] initWithFrame:CGRectMake(0, 0, KSCREENWIDTH, KSCREENHEIGHT) andImage:result];
-        [self.view addSubview:showView];
-//        cell.myImage.image = result;
-//        [showView setImageViewWithImage:result];
-    }];
+    for(NSInteger i = 0; i != [_showDataInfoArray count]; i++)
+        [[PHImageManager defaultManager] requestImageForAsset:(PHAsset*)[_showDataInfoArray objectAtIndex:i] targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeAspectFit options:options resultHandler:^(UIImage *result, NSDictionary *info) {
+            if (!result) {
+                return;
+            }
+            GGImageShowView *showView = [[GGImageShowView alloc] initWithFrame:CGRectMake(i* KSCREENWIDTH, 0, KSCREENWIDTH, KSCREENHEIGHT) andImage:result];
+            [_showImageScrollView addSubview:showView];
+        }];
+    currentPage = indexPath.row;
+    [_showImageScrollView setContentOffset:CGPointMake(indexPath.row * KSCREENWIDTH, 0)];
 }
 
 #pragma mark <UICollectionViewDelegateFlowLayout>
@@ -236,7 +243,23 @@ static NSString * const reuseIdentifier = @"Cell";
             break;
     }
 }
-#pragma mark ---- UICollectionViewDelegateFlowLayout ----
+#pragma mark ---- gesture action ----
+-(void)removeScrollView:(UIGestureRecognizer*)ges
+{
+    [_showImageScrollView removeFromSuperview];
+    _showImageScrollView = nil;
+}
+
+#pragma mark ---- scrollview delegate ----
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if(scrollView.tag == SHOWIMAGESCROLLMODE)
+    {
+        
+    }
+}
+
 
 //- (void)prepareLayout {
 //    
