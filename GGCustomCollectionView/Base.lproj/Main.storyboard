@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hmI-bY-om7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="hmI-bY-om7">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -20,60 +19,43 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Kp-tz-Gui" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-565" y="327"/>
+            <point key="canvasLocation" x="-301.33333333333331" y="309.56"/>
         </scene>
         <!--Custom Collection View Controller-->
         <scene sceneID="kPR-go-gmR">
             <objects>
                 <collectionViewController id="xds-gT-77t" customClass="GGCustomCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="K4G-sf-aay">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <collectionViewLayout key="collectionViewLayout" id="L2C-6i-NZh" customClass="GGCollectionViewLayout"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="YnQ-4u-ZIa" customClass="GGCustomCollectionViewCell">
-                                <rect key="frame" x="0.0" y="64" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="64" width="100" height="136"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="136"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KKC-9G-jZW">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                            <color key="backgroundColor" red="1" green="0.089865163967686623" blue="0.59220547792839628" alpha="1" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="88" id="L2b-Tf-FQI"/>
-                                            </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="L2b-Tf-FQI"/>
-                                                </mask>
-                                            </variation>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3GH-k5-j6Z">
-                                            <rect key="frame" x="0.0" y="96" width="100" height="36"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="36" id="zpT-AM-tnv"/>
-                                            </constraints>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3GH-k5-j6Z">
+                                            <rect key="frame" x="0.0" y="100" width="100" height="36"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="KKC-9G-jZW">
+                                            <rect key="frame" x="50" y="50" width="0.0" height="0.0"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="1" green="0.089865163967686623" blue="0.59220547792839628" alpha="1" colorSpace="calibratedRGB"/>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" red="1" green="0.34660986536857352" blue="0.5477359293384636" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="KKC-9G-jZW" firstAttribute="leading" secondItem="YnQ-4u-ZIa" secondAttribute="leadingMargin" constant="-8" id="7mP-JO-z73"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="3GH-k5-j6Z" secondAttribute="trailing" constant="-8" id="AI0-jy-q8H"/>
-                                    <constraint firstItem="KKC-9G-jZW" firstAttribute="top" secondItem="YnQ-4u-ZIa" secondAttribute="topMargin" constant="-8" id="Egg-zJ-Jjv"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="3GH-k5-j6Z" secondAttribute="bottom" constant="-8" id="Ixt-IB-iRe"/>
-                                    <constraint firstItem="3GH-k5-j6Z" firstAttribute="leading" secondItem="YnQ-4u-ZIa" secondAttribute="leadingMargin" constant="-8" id="Zg2-xH-UOs"/>
-                                    <constraint firstItem="3GH-k5-j6Z" firstAttribute="top" secondItem="KKC-9G-jZW" secondAttribute="bottom" constant="-4" id="rqm-Cc-0Jj"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="KKC-9G-jZW" secondAttribute="trailing" constant="-8" id="xh3-Ti-fLv"/>
-                                </constraints>
+                                <size key="customSize" width="100" height="136"/>
                                 <connections>
                                     <outlet property="myImage" destination="KKC-9G-jZW" id="r4Z-92-CcM"/>
                                     <outlet property="nameLabel" destination="3GH-k5-j6Z" id="WCB-BU-KNf"/>
@@ -90,7 +72,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SaH-oa-dmk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="WjN-oP-tsv"/>
             </objects>
-            <point key="canvasLocation" x="196" y="350"/>
+            <point key="canvasLocation" x="104" y="331"/>
         </scene>
     </scenes>
 </document>

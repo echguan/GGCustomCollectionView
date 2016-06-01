@@ -133,6 +133,9 @@ static NSString * const reuseIdentifier = @"Cell";
     options.networkAccessAllowed = YES;
     CGFloat scale = [UIScreen mainScreen].scale;
     CGSize targetSize = CGSizeMake(CGRectGetWidth(cell.myImage.bounds) * scale, CGRectGetHeight(cell.myImage.bounds) * scale);
+//    CGRect tempRect = cell.myImage.frame;
+//    cell.myImage.frame = CGRectMake(cell.frame.size.width / 2, cell.frame.size.height / 2, 0, 0);
+//    NSLog(@"%f,%f,%f,%f", cell.myImage.frame.origin.x, cell.myImage.frame.origin.y, cell.myImage.frame.size.width, cell.myImage.frame.size.height);
     [[PHImageManager defaultManager] requestImageForAsset:(PHAsset*)[_showDataInfoArray objectAtIndex:indexPath.row] targetSize:targetSize contentMode:PHImageContentModeAspectFit options:options resultHandler:^(UIImage *result, NSDictionary *info) {
         // Hide the progress view now the request has completed.
 //        self.progressView.hidden = YES;
@@ -142,6 +145,10 @@ static NSString * const reuseIdentifier = @"Cell";
             return;
         }
         cell.myImage.image = result;
+        
+        [UIView animateWithDuration:2.0 animations:^{
+            cell.myImage.frame = CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height);
+        }];
     }];
     cell.nameLabel.text = @"hello";
     return cell;
